@@ -1,14 +1,17 @@
 import { test, chromium } from "@playwright/test";
 import path from "path";
+
+
 let browser;
 let context;
 let page;
 
 test.describe("Uploading File", () => {
   test.beforeAll(async () => {
-    browser = await chromium.launch();
+    browser = await chromium.launch({headless:false});
     context = await browser.newContext();
     page = await context.newPage();
+    test.setTimeout(40000)
     await page.goto("https://demo.guru99.com/test/upload/");
   });
 
@@ -28,4 +31,5 @@ test.describe("Uploading File", () => {
   test.afterAll(async () => {
     await browser.close();
   });
+  
 });
