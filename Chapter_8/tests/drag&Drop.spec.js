@@ -28,7 +28,7 @@ test.describe("Drag & Drop", () => {
     const debitAmount = await page.locator("#amt7 > li").innerText();
     const creditAmount = await page.locator("#amt8 > li").innerText();
 
-    await expect(parseInt(debitAmount)).toBeLessThanOrEqual(
+    expect(parseInt(debitAmount)).toBeLessThanOrEqual(
       parseInt(creditAmount)
     );
   });
